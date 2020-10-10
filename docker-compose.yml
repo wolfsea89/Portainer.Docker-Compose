@@ -1,0 +1,26 @@
+version: '3'
+
+services:
+  portainer:
+    image: portainer/portainer:latest
+    container_name: portainer
+    restart: unless-stopped   
+    security_opt:
+      - no-new-privileges:true
+    networks:
+      - traefik
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+      - /var/run/docker.sock:/var/run/docker.sock
+      - /Data/containers/portainer/data:/data
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.portainer-rachuna-pl.entrypoints=https"
+      - "traefik.http.routers.portainer-rachuna-pl.rule=Host(`portainer.rachuna.pl`)"
+      - "traefik.http.routers.portainer-rachuna-pl.tls=true"
+      - "traefik.http.routers.portainer-rachuna-pl.service=portainer-rachuna-pl"
+      - "traefik.http.services.portainer-rachuna-pl.loadbalancer.server.port=9000"
+
+networks:
+  traefik:
+    external:
