@@ -1,19 +1,19 @@
 Portainer.Docker-Compose
 =========
 
-Run docker-compose
+Uruchomienie docker-compose
 ```
 docker-compose up -d
 ```
 
-Language: [EN](README.md), [PL](README.PL.md)
+Język: [EN](README.md), [PL](README.PL.md)
 
-License
+Licencja
 -------
 
 BSD
 
-Author Information
+Autor
 ------------------
  **Maciej Rachuna**
 ##### System Administrator & DevOps Engineer
